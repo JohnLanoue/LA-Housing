@@ -400,3 +400,4 @@ plt.show()
 #
 # A successful model has been built and analyzed for determining the value of districts.  Moving forward, we are going to want additional variables for determining this variable.  The primary driver - a known insight is that median_income is the greatest driver for determining the median_house_value.  Currently, it appears that evaluating spikes in income is the greatest means for discovering locations that are a great investment opportunity.
 type(sorted(zip(feature_importances, attributes), reverse=True))
+#
