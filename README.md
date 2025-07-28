@@ -3,8 +3,8 @@ Included is the script in both .ipyb and .py.  The .py is a touch more up to dat
 
 Todo: 
   Make the file loadable with new datasets.
-  Create more clarity when viewing output from the console.  
-  Say More about the winning data model in fine tuning.  Do a final test.  
+  xCreate more clarity when viewing output from the console.  
+  xSay More about the winning data model in fine tuning.  Do a final test.  
 
 Next time: 
   Use an integrartion service for retaining consistancy between the script and notebook.  
