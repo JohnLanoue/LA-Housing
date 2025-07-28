@@ -44,6 +44,7 @@ def load_housing_data(housing_path=HOUSING_PATH):
     csv_path = os.path.join(housing_path, "housing.csv")
     return pd.read_csv(csv_path)
 def display_scores(scores):
+    print("Mean Square Error Cross Validation Scores:")
     print("Scores:", scores)
     print("Mean:", scores.mean())
     print("Standard deviation:", scores.std())
@@ -299,6 +300,7 @@ forest_reg = RandomForestRegressor(random_state=42)
 grid_search = GridSearchCV(forest_reg, param_grid, cv=5,
                            scoring='neg_mean_squared_error',
                            return_train_score=True)
+print("Random Forest regressor hyper-parameter searchs:")
 grid_search.fit(housing_prepared, housing_labels)
 grid_search.best_params_
 grid_search.best_estimator_
@@ -349,7 +351,7 @@ sorted(zip(feature_importances, attributes), reverse=True)
 
 # In[54]:
 
-
+print("Final Model:")
 final_model = grid_search.best_estimator_
 
 X_test = strat_test_set.drop("median_house_value", axis=1)
@@ -360,6 +362,7 @@ final_predictions = final_model.predict(X_test_prepared)
 
 final_mse = mean_squared_error(y_test, final_predictions)
 final_rmse = np.sqrt(final_mse)
+print("Final Model RMSE:")
 final_rmse
 
 
@@ -400,4 +403,3 @@ plt.show()
 #
 # A successful model has been built and analyzed for determining the value of districts.  Moving forward, we are going to want additional variables for determining this variable.  The primary driver - a known insight is that median_income is the greatest driver for determining the median_house_value.  Currently, it appears that evaluating spikes in income is the greatest means for discovering locations that are a great investment opportunity.
 type(sorted(zip(feature_importances, attributes), reverse=True))
-#
