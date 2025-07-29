@@ -353,6 +353,7 @@ sorted(zip(feature_importances, attributes), reverse=True)
 
 print("Final Model:")
 final_model = grid_search.best_estimator_
+print(final_model)
 
 X_test = strat_test_set.drop("median_house_value", axis=1)
 y_test = strat_test_set["median_house_value"].copy()
@@ -363,7 +364,7 @@ final_predictions = final_model.predict(X_test_prepared)
 final_mse = mean_squared_error(y_test, final_predictions)
 final_rmse = np.sqrt(final_mse)
 print("Final Model RMSE:")
-final_rmse
+print(final_rmse)
 
 
 confidence = 0.95
